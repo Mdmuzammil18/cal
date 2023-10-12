@@ -1,24 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Calendar from './components/Calender/Calendar';
 
 function App() {
+  const someDate = new Date('2022-10-03'); // Example date
+
+  const handleDateClick = (clickedDate: { toDateString: () => any; }) => {
+    console.log(`Clicked date: ${clickedDate.toDateString()}`);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Calendar date={someDate} onDateClick={handleDateClick} />
     </div>
   );
 }
